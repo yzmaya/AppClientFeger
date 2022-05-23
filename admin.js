@@ -6,6 +6,8 @@ import {
     onGetTasks3,
     onGetTasks4,
     onGetTasks5,
+    onGetTasks6,
+    onGetTasks7,
     saveTask,
     deleteTask,
     getTask,
@@ -19,6 +21,8 @@ import {
   const tasksContainer3 = document.getElementById("tasks-container3");
   const tasksContainer4 = document.getElementById("tasks-container4");
   const tasksContainer5 = document.getElementById("tasks-container5");
+  const tasksContainer6 = document.getElementById("tasks-container6");
+  const tasksContainer7 = document.getElementById("tasks-container7");
   let editStatus = false;
   let id = "";
   
@@ -132,6 +136,66 @@ import {
           const task = doc.data();
     
           tasksContainer5.innerHTML += `
+          <div class="card card-body mt-2 border-primary">
+        <h3 class="h5">${task.title}</h3>
+        <p>${task.description}</p>
+        <div>
+        
+         
+        </div>
+      </div>`;
+        });
+    
+     
+      });
+    });
+
+
+         //panel 6
+  
+         window.addEventListener("DOMContentLoaded", async (e) => {
+          // const querySnapshot = await getTasks();
+          // querySnapshot.forEach((doc) => {
+          //   console.log(doc.data());
+          // });
+        
+          onGetTasks6((querySnapshot) => {
+            tasksContainer6.innerHTML = "";
+        
+            querySnapshot.forEach((doc) => {
+              const task = doc.data();
+        
+              tasksContainer6.innerHTML += `
+              <div class="card card-body mt-2 border-primary">
+            <h3 class="h5">${task.title}</h3>
+            <p>${task.description}</p>
+            <div>
+            
+             
+            </div>
+          </div>`;
+            });
+        
+         
+          });
+        });
+
+
+             //panel 7
+  
+     window.addEventListener("DOMContentLoaded", async (e) => {
+      // const querySnapshot = await getTasks();
+      // querySnapshot.forEach((doc) => {
+      //   console.log(doc.data());
+      // });
+    
+      onGetTasks7((querySnapshot) => {
+        tasksContainer7.innerHTML = "";
+    
+        querySnapshot.forEach((doc) => {
+          const task = doc.data();
+    
+          tasksContainer7.innerHTML += `
           <div class="card card-body mt-2 border-primary">
         <h3 class="h5">${task.title}</h3>
         <p>${task.description}</p>

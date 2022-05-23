@@ -71,7 +71,19 @@ firebase.auth().onAuthStateChanged(function(user) {
   
     window.location.href = "home.html"
 
-   }else{
+   }else if((userEmail == "ivonnemtzsoto@gmail.com") && (userPwd == "Feger2022")){
+    localStorage.setItem("UserID", "CBNvrE3hCpNxquJSN4WOyDQj23D2");
+    localStorage.setItem("UserName", "Ivonne Martínez");
+  
+    window.location.href = "home.html"
+   
+   }else if((userEmail == "baruch.beltran@belsua.com") && (userPwd == "Feger2022")){
+    localStorage.setItem("UserID", "uAG41FLLXJaw2iUnIRyoOUCc8WF3");
+    localStorage.setItem("UserName", "Baruch Beltrán");
+  
+    window.location.href = "home.html"
+   }
+   else{
     {
        alert("algo anda mal con tu correo electrónico")
    }

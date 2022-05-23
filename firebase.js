@@ -33,6 +33,8 @@ var luis = "GsIAhi9LeIVctMWBlhYSzKbCRef1"
 var vero = "0CQXGjrqrdNIEBDpcUZzMTg5ARZ2"
 var areli = "DxotYIXpNlaYMpd1G2owqR76iy32"
 var asesorventas = "ZCZa6bwW8uQNjkdLyNPBqpNjyp13"
+var ivonnem = "CBNvrE3hCpNxquJSN4WOyDQj23D2"
+var baruch = "uAG41FLLXJaw2iUnIRyoOUCc8WF3"
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 
@@ -60,6 +62,12 @@ export const onGetTasks2 = (callback) =>
 
   export const onGetTasks5 = (callback) =>
   onSnapshot(collection(db, asesorventas), callback);
+
+  export const onGetTasks6 = (callback) =>
+  onSnapshot(collection(db, ivonnem), callback);
+
+  export const onGetTasks7 = (callback) =>
+  onSnapshot(collection(db, baruch), callback);
 
 /**
  *
