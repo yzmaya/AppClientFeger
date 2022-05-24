@@ -15,10 +15,9 @@ const tasksContainer2 = document.getElementById("tasks-container2");
 const tasksContainer3 = document.getElementById("tasks-container3");
 let editStatus = false;
 let id = "";
-var userName = localStorage.getItem("UserName");
-console.log(userName)
 
-document.getElementById('nombre').innerHTML = userName;
+
+
 
 window.addEventListener("DOMContentLoaded", async (e) => {
   // const querySnapshot = await getTasks();

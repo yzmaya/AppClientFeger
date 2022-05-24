@@ -26,7 +26,10 @@ const firebaseConfig = {
   appId: "1:275378853802:web:ec860c370e167b471afdd3"
 };
 var userID = localStorage.getItem("UserID");
+var username = localStorage.getItem("UserName");
 console.log(userID)
+console.log(username)
+document.getElementById('nombre').innerHTML = username;
 
 
 var luis = "GsIAhi9LeIVctMWBlhYSzKbCRef1"

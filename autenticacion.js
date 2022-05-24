@@ -39,9 +39,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   
   }
 
-  function cerrarSession(){
-    window.location.href = "index.html"
-  }
+ 
   function loginHARD(){
   
     var userEmail = document.getElementById('campo_email').value;
