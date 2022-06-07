@@ -32,7 +32,7 @@ var username = localStorage.getItem("UserName");
 
 
 console.log(userID)
-console.log(miuservar)
+console.log(username)
 document.getElementById('nombre').innerHTML = username;
 
 
