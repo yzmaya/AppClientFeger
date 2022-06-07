@@ -27,8 +27,12 @@ const firebaseConfig = {
 };
 var userID = localStorage.getItem("UserID");
 var username = localStorage.getItem("UserName");
+
+
+
+
 console.log(userID)
-console.log(username)
+console.log(miuservar)
 document.getElementById('nombre').innerHTML = username;
 
 
@@ -47,9 +51,15 @@ export const db = getFirestore();
  * Save a New Task in Firestore
  * @param {string} title the title of the Task
  * @param {string} description the description of the Task
+ * @param {string} usuarioapp the description of the Task
  */
 export const saveTask = (title, description) =>
   addDoc(collection(db, userID), { title, description });
+
+  
+  export const saveTaskDelegate = (title, description, usuarioapp) =>
+  addDoc(collection(db, usuarioapp), { title, description });
+
 
   export const onGetTasks = (callback) =>
   onSnapshot(collection(db, userID), callback);
@@ -76,7 +86,11 @@ export const onGetTasks2 = (callback) =>
  *
  * @param {string} id Task ID
  */
+
+ 
 export const deleteTask = (id) => deleteDoc(doc(db, userID, id));
+
+export const deleteTaskSelected = (id) => deleteDoc(doc(db, miuservar, id));
 
 export const getTask = (id) => getDoc(doc(db, userID, id));
 
@@ -84,3 +98,7 @@ export const updateTask = (id, newFields) =>
   updateDoc(doc(db, userID, id), newFields);
 
 export const getTasks = () => getDocs(collection(db, userID));
+
+
+
+

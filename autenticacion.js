@@ -39,6 +39,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   
   }
 
+
  
   function loginHARD(){
   

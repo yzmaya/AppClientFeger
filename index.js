@@ -3,13 +3,17 @@
 import {
   onGetTasks,
   saveTask,
+  saveTaskDelegate,
   deleteTask,
+  deleteTaskSelected,
   getTask,
   updateTask,
   getTasks,
+  db,
 } from "./firebase.js";
 
 const taskForm = document.getElementById("task-form");
+const taskForm2 = document.getElementById("task-form2");
 const tasksContainer = document.getElementById("tasks-container");
 const tasksContainer2 = document.getElementById("tasks-container2");
 const tasksContainer3 = document.getElementById("tasks-container3");
@@ -37,16 +41,34 @@ window.addEventListener("DOMContentLoaded", async (e) => {
     <p>${task.description}</p>
     <div>
       <button class="btn btn-primary btn-delete" data-id="${doc.id}">
-        🗑 Delete
+        🗑 Eliminar
       </button>
       <button class="btn btn-secondary btn-edit" data-id="${doc.id}">
-        🖉 Edit
+        🖉 Editar
       </button>
+     
+  
     </div>
-  </div>`;
+  </div>
+ 
+  `;
     });
 
-  
+    const selectElement = document.querySelector('.nieve');
+
+    selectElement.addEventListener('change', (event) => {
+      const resultado = document.querySelector('.resultado');
+      localStorage.setItem("userVar", `${event.target.value}`);
+    
+      
+    });
+
+
+
+
+
+
+
 
     const btnsDelete = tasksContainer.querySelectorAll(".btn-delete");
     btnsDelete.forEach((btn) =>
@@ -64,13 +86,17 @@ window.addEventListener("DOMContentLoaded", async (e) => {
       btn.addEventListener("click", async (e) => {
         try {
           const doc = await getTask(e.target.dataset.id);
+       
           const task = doc.data();
           taskForm["task-title"].value = task.title;
           taskForm["task-description"].value = task.description;
 
           editStatus = true;
           id = doc.id;
-          taskForm["btn-task-form"].innerText = "Update";
+         
+          localStorage.setItem("myIdTarget", id);
+          taskForm["btn-task-form"].innerText = "Actualizar";
+         
         } catch (error) {
           console.log(error);
         }
@@ -102,7 +128,8 @@ taskForm.addEventListener("submit", async (e) => {
 
       editStatus = false;
       id = "";
-      taskForm["btn-task-form"].innerText = "Save";
+      taskForm["btn-task-form"].innerText = "Guardar";
+
     }
 
     taskForm.reset();
@@ -110,4 +137,27 @@ taskForm.addEventListener("submit", async (e) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+
+//agrega una tarea al repo
+
+document.getElementById("btn-task-form2").addEventListener("click", async (e) => {
+  e.preventDefault();
+  var titulo = document.getElementById("task-title").value;
+  var descripcion = document.getElementById("task-description").value;
+  var miuservar = localStorage.getItem("userVar");
+ 
+  
+  await saveTaskDelegate(titulo, descripcion, miuservar);
+  alert("tarea delegada completada!");
+  var myIdTarget = localStorage.getItem("myIdTarget");
+
+  await deleteTask(myIdTarget);
+  editStatus = false;
+  document.getElementById("task-title").value = "";
+  document.getElementById("task-description").value = "";
+  document.getElementById("btn-task-form").innerText = "Guardar";
+  document.getElementById("nieve").value = "Seleccione 1";
+
 });
