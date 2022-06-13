@@ -150,12 +150,17 @@ taskForm.addEventListener("submit", async (e) => {
 
 document.getElementById("btn-task-form2").addEventListener("click", async (e) => {
   e.preventDefault();
+  var hoy = new Date();
+  var fecha = hoy.getDate() + '-' + ( hoy.getMonth() + 1 ) + '-' + hoy.getFullYear();
+  var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+  var fechahora = fecha + " " + hora;
+
   var titulo = document.getElementById("task-title").value;
   var descripcion = document.getElementById("task-description").value;
   var miuservar = localStorage.getItem("userVar");
  
   
-  await saveTaskDelegate(titulo, descripcion, miuservar);
+  await saveTaskDelegate(titulo, descripcion, miuservar, fechahora) ;
   alert("tarea delegada completada!");
   var myIdTarget = localStorage.getItem("myIdTarget");
 

@@ -58,8 +58,8 @@ export const saveTask = (title, description, fecha) =>
   addDoc(collection(db, userID), { title, description, fecha });
 
   
-  export const saveTaskDelegate = (title, description, usuarioapp) =>
-  addDoc(collection(db, usuarioapp), { title, description });
+  export const saveTaskDelegate = (title, description, usuarioapp, fecha) =>
+  addDoc(collection(db, usuarioapp), { title, description, fecha });
 
 
   export const onGetTasks = (callback) =>
