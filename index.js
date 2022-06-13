@@ -37,6 +37,7 @@ window.addEventListener("DOMContentLoaded", async (e) => {
 
       tasksContainer.innerHTML += `
       <div class="card card-body mt-2 border-primary">
+      <span>Fecha de última modificación ${task.fecha}</span>
     <h3 class="h5">${task.title}</h3>
     <p>${task.description}</p>
     <div>
@@ -116,14 +117,19 @@ taskForm.addEventListener("submit", async (e) => {
 
   const title = taskForm["task-title"];
   const description = taskForm["task-description"];
+  var hoy = new Date();
+  var fecha = hoy.getDate() + '-' + ( hoy.getMonth() + 1 ) + '-' + hoy.getFullYear();
+  var hora = hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+  var fechahora = fecha + " " + hora;
 
   try {
     if (!editStatus) {
-      await saveTask(title.value, description.value);
+      await saveTask(title.value, description.value, fechahora);
     } else {
       await updateTask(id, {
         title: title.value,
         description: description.value,
+        fecha: fechahora,
       });
 
       editStatus = false;

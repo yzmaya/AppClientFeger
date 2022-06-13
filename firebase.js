@@ -52,9 +52,10 @@ export const db = getFirestore();
  * @param {string} title the title of the Task
  * @param {string} description the description of the Task
  * @param {string} usuarioapp the description of the Task
+ * @param {string} fecha the description of the Task
  */
-export const saveTask = (title, description) =>
-  addDoc(collection(db, userID), { title, description });
+export const saveTask = (title, description, fecha) =>
+  addDoc(collection(db, userID), { title, description, fecha });
 
   
   export const saveTaskDelegate = (title, description, usuarioapp) =>

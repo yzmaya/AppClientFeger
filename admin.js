@@ -44,14 +44,12 @@ import {
         const task = doc.data();
   
         tasksContainer2.innerHTML += `
-        <div class="card card-body mt-2 border-primary">
-      <h3 class="h5">${task.title}</h3>
-      <p>${task.description}</p>
-      <div>
-      
-       
-      </div>
-    </div>`;
+        <table style="  border-bottom-style: solid;  ">
+        <td>
+         <span style="color: blue;"> ${task.fecha} </span> </td>
+      <td width="20%"> ${task.title} </td>
+       <td width="80%"> ${task.description} </td>
+     </table>`;
       });
   
     
@@ -77,14 +75,17 @@ import {
         const task = doc.data();
   
         tasksContainer3.innerHTML += `
-        <div class="card card-body mt-2 border-primary">
-      <h3 class="h5">${task.title}</h3>
-      <p>${task.description}</p>
-      <div>
-      
+     
+    
+      <table style="  border-bottom-style: solid;  ">
+       <td>
+        <span style="color: blue;"> ${task.fecha} </span> </td>
+     <td width="20%"> ${task.title} </td>
+      <td width="80%"> ${task.description} </td>
+    </table>
        
-      </div>
-    </div>`;
+   
+    `;
       });
   
    
@@ -107,14 +108,12 @@ import {
           const task = doc.data();
     
           tasksContainer4.innerHTML += `
-          <div class="card card-body mt-2 border-primary">
-        <h3 class="h5">${task.title}</h3>
-        <p>${task.description}</p>
-        <div>
-        
-         
-        </div>
-      </div>`;
+          <table style="  border-bottom-style: solid;  ">
+          <td>
+           <span style="color: blue;"> ${task.fecha} </span> </td>
+        <td width="20%"> ${task.title} </td>
+         <td width="80%"> ${task.description} </td>
+       </table>`;
         });
     
      
@@ -137,14 +136,12 @@ import {
           const task = doc.data();
     
           tasksContainer5.innerHTML += `
-          <div class="card card-body mt-2 border-primary">
-        <h3 class="h5">${task.title}</h3>
-        <p>${task.description}</p>
-        <div>
-        
-         
-        </div>
-      </div>`;
+          <table style="  border-bottom-style: solid;  ">
+          <td>
+           <span style="color: blue;"> ${task.fecha} </span> </td>
+        <td width="20%"> ${task.title} </td>
+         <td width="80%"> ${task.description} </td>
+       </table>`;
         });
     
      
@@ -167,14 +164,13 @@ import {
               const task = doc.data();
         
               tasksContainer6.innerHTML += `
-              <div class="card card-body mt-2 border-primary">
-            <h3 class="h5">${task.title}</h3>
-            <p>${task.description}</p>
-            <div>
-            
-             
-            </div>
-          </div>`;
+              
+              <table style="  border-bottom-style: solid;  ">
+              <td>
+               <span style="color: blue;"> ${task.fecha} </span> </td>
+            <td width="20%"> ${task.title} </td>
+             <td width="80%"> ${task.description} </td>
+           </table>`;
             });
         
          
@@ -197,16 +193,35 @@ import {
           const task = doc.data();
     
           tasksContainer7.innerHTML += `
-          <div class="card card-body mt-2 border-primary">
-        <h3 class="h5">${task.title}</h3>
-        <p>${task.description}</p>
-        <div>
-        
-         
-        </div>
-      </div>`;
+          <table style="  border-bottom-style: solid;  ">
+          <td>
+           <span style="color: blue;"> ${task.fecha} </span> </td>
+        <td width="20%"> ${task.title} </td>
+         <td width="80%"> ${task.description} </td>
+       </table>`;
         });
     
      
       });
     });
+
+    $(document).ready(function () {
+
+      (function ($) {
+
+          $('#filtrar').keyup(function () {
+
+              var rex = new RegExp($(this).val(), 'i');
+            
+              $('.buscar tr').hide();
+              $('.buscar tr').filter(function () {
+                  return rex.test($(this).text());
+                    
+              }).show();
+
+          });
+
+      }(jQuery));
+       
+
+  });
