@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>App FEGER</title>
+  <title>R E C O</title>
 <link rel="stylesheet" type="text/css" href="estilo.css">
 
 <meta charset="utf-8">
@@ -20,7 +21,7 @@
   <div class="container">
 
   <div class="login-container" id="login_div">
-            <div class=""><h3>Registro Appclient</h3></div>
+            <div class=""><h3>APPCLIENT</h3></div>
             
               
                 <div class="form-group">
@@ -33,19 +34,19 @@
                     <input type="password" class="form-control" id="campo_pwd" placeholder="Ingresar Contraseña" name="pwd" required="">
                   </div>
                 </div>
-                <div class="form-group">        
+             <div class="form-group">        
                   <div class="">
-                    <span><a href="" data-target="#myModal2" data-toggle="modal" > ¿Olvidaste tu contraseña?</a></span><br><br>
-                    <button  class="btn btn-success" onclick="login()">Iniciar Sesión</button>
+                 <!---  <span><a href="" data-target="#myModal2" data-toggle="modal" > ¿Olvidaste tu contraseña?</a></span><br><br>-->
+                    <button  class="btn btn-success" onclick="loginHARD()">Iniciar Sesión</button>
                   </div>
                 </div>
-              
+               <!--  
                 <div class="well">
             <span>¿No tienes una cuenta? <a href="" data-target="#myModal" data-toggle="modal">Regístrate</a></span>
-                </div> 
+                </div> -->
 </div>
 
- <!-- MODAL PARA REGISTRARSE COMO NUEVO USUARIO  -->
+ <!-- MODAL PARA REGISTRARSE COMO NUEVO USUARIO 
 
   
   <div class="modal fade" id="myModal" role="dialog">
@@ -77,12 +78,13 @@
       
     </div>
   </div>
+   -->
 
-
+<!---
   <div class="modal fade" id="myModal2" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
+  
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -104,31 +106,19 @@
       
     </div>
   </div>
-
+-->
 </div>
 
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-app.min.js" integrity="sha512-Gvs2fg+wkNjydmkwgHwwTkuWlr9Gz0hTjFwJ4InwYwbAA3rtL2kBIHt7YRfwVCdW77QF2Ne2DdHQVCcULM89ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-auth.min.js" integrity="sha512-GAEvFso2oksY5JFkHlrfLhZgAV6aL48qxnbxPnbKnNLeG/XsU/c0lh/g9gocZ2RtbRx6VDTqspPEy9ixWvbfzw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
 <script>
   // Initialize Firebase
    // Your web app's Firebase configuration
-  var firebaseConfig = {
-  apiKey: "AIzaSyDim04dy07kZmjK5DeHP6siKSW-Ru2nN58",
-  authDomain: "todolist-a936f.firebaseapp.com",
-  projectId: "todolist-a936f",
-  storageBucket: "todolist-a936f.appspot.com",
-  messagingSenderId: "275378853802",
-  appId: "1:275378853802:web:ec860c370e167b471afdd3"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+
   
 </script>
-<script src="autenticationnew.js"></script>
+<script src="autenticacion.js"></script>
 </body>
 </html>
 

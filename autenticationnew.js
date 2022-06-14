@@ -1,5 +1,3 @@
-
-/*
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
   
@@ -8,6 +6,10 @@ firebase.auth().onAuthStateChanged(function(user) {
   
       var user = firebase.auth().currentUser;
       console.log('usuario autentificado');
+        var usuario = user.uid;
+        var correo = user.email;
+      localStorage.setItem("UserID", usuario);
+      localStorage.setItem("UserMail", correo);
       window.location.href = 'home.html';
   
       if(user != null){
@@ -17,15 +19,16 @@ firebase.auth().onAuthStateChanged(function(user) {
     } else {
       // No user is signed in.
   
-      console.log('usuario no logueado')
+      console.log('usuario no logueadoz')
   
     }
   });
-  -*/
+  
   function login(){
   
     var userEmail = document.getElementById('campo_email').value;
     var userPwd = document.getElementById('campo_pwd').value;
+  
   
     firebase.auth().signInWithEmailAndPassword(userEmail, userPwd).catch(function(error) {
       // Handle Errors here.
@@ -38,25 +41,12 @@ firebase.auth().onAuthStateChanged(function(user) {
     });
   
   }
-
-
- 
-  function loginHARD(){
-  
- 
-  
-
-
-
-  }
-
-
- 
   
   function cuentaNueva(){
   
     var newEmail = document.getElementById('nuevo_email').value;
     var newPwd = document.getElementById('nuevo_pwd').value;
+
   
     firebase.auth().createUserWithEmailAndPassword(newEmail, newPwd).catch(function(error) {
     // Handle Errors here.
@@ -98,6 +88,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   
       //}    
     //});
+  
   
   
   
