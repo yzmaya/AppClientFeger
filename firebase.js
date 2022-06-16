@@ -2,7 +2,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// https://firebase.google.com/docs/web/setup#available-
+
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
+
 import {
   getFirestore,
   collection,
@@ -47,6 +50,24 @@ var baruch = "uAG41FLLXJaw2iUnIRyoOUCc8WF3"
 export const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore();
+
+
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    console.log(uid)
+    // ...
+  } else {
+    // User is signed out
+    // ...
+    console.log("usuarno no logueado desde firebasejs");
+  }
+});
+
+
 
 /**
  * Save a New Task in Firestore
